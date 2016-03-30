@@ -39,6 +39,17 @@ Files and instructions for learning Android.
   - Add Project
   - Link to GitHub
   - Build your project
+  - Create custom circle.yml
+```
+dependencies:
+  pre:
+    - echo y | android update sdk --no-ui --all --filter "extra-android-m2repository,extra-android-support"
+
+test:
+  override:
+    - ./gradlew assembleDebug
+```
+  - 
   - Commit circle.yml
   - https://circleci.com/docs/config-sample
   - android list sdk --all --no-ui --extended | grep "support"
