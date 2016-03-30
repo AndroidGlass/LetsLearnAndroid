@@ -10,7 +10,7 @@ Files and instructions for learning Android.
   - Open Android Studio
        - Import/Don’t settings from previous installation 
        - Use default installation for setting up sdk: ~/Library/Android/sdk
-- Project setup
+####Project setup
 - Open Android Studio
   - Start New Android Project
   - New Project
