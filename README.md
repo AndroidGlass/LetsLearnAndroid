@@ -26,16 +26,24 @@ Files and instructions for learning Android.
   - Finish
 
 - Add version control
-    - Set up gitignore
+    - Click on vcs
+    - Enable version control
+    - Select Git
+    - Add .idea to .gitignore
+    - Add and Commit changes
+- Github
+    - Create a new github respository
+    - Add remote 
     - Push to Github
-- Sign up for CircleCI
+- CircleCI
+  - Add Project
   - Link to GitHub
   - Build your project
   - Commit circle.yml
   - https://circleci.com/docs/config-sample
   - android list sdk --all --no-ui --extended | grep "support"
   - https://github.com/Originate/guide/blob/master/android/guide/Continuous%20Deployment.md
-- Sign up for HockeyApp
+- HockeyApp
   - http://hockeyapp.net/features/
   - Create free account
   - Check “I’m a developer”
