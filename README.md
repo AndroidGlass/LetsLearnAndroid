@@ -24,6 +24,7 @@ Files and instructions for learning Android.
   - Customize:
     - MainActivity
   - Finish
+  - Change the build tool version to 23.0.1
 
 - Add version control
     - Click on vcs
@@ -39,21 +40,6 @@ Files and instructions for learning Android.
   - Add Project
   - Link to GitHub
   - Build your project
-  - Create custom circle.yml
-```
-dependencies:
-  pre:
-    - echo y | android update sdk --no-ui --all --filter "extra-android-m2repository,extra-android-support"
-
-test:
-  override:
-    - ./gradlew assembleDebug
-```
-  - 
-  - Commit circle.yml
-  - https://circleci.com/docs/config-sample
-  - android list sdk --all --no-ui --extended | grep "support"
-  - https://github.com/Originate/guide/blob/master/android/guide/Continuous%20Deployment.md
 - HockeyApp
   - http://hockeyapp.net/features/
   - Create free account
@@ -63,3 +49,20 @@ test:
     - Navigate to URL
     - Install HockeyApp app
   - Create App
+    - Android - alpha
+  - Create scripts folder in project
+    - Create [deployHockeyApp.sh](https://github.com/AndroidGlass/LetsLearnAndroid/blob/master/scripts/deployHockeyApp.sh) under scripts
+  - Create [circle.yml](https://github.com/AndroidGlass/LetsLearnAndroid/blob/master/circle.yml)
+    - For more information visit https://github.com/Originate/guide/blob/master/android/guide/Continuous%20Deployment.md
+  - Commit the files, don't push!
+  - On HockeyApp
+    - Account settings > API Tokens > Create API Token
+      - App : your app
+      - Rights : Upload & Release
+      - Name : CircleCI
+  - On Circle CI 
+    - Go to project settings > Enviroment variables
+      - HOCKEYAPP_APP_IDENTIFIER : copy from hockeyapp project
+      - HOCKEYAPP_EXPORT_APK_PATH : app/build/outputs/apk/app-debug.apk
+      - HOCKEYAPP_TOKEN : copy from hockyapp account settings
+  - Push to github.
