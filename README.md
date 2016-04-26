@@ -65,3 +65,34 @@ Files and instructions for learning Android.
       - HOCKEYAPP_EXPORT_APK_PATH : app/build/outputs/apk/app-debug.apk
       - HOCKEYAPP_TOKEN : copy from hockyapp account settings
   - Push to github.
+
+
+# Lesson 2
+## First Activity
+
+  - Running The Application:
+    - Open up Android Studio
+    - Select MiiDroid
+    - Setting up device
+      - On the device: Settings -> developer options -> Enable USB Debugging
+      - Plug device into the laptop
+      - Click on the green play button and select the device from the list. The app should launch on the device 
+    - Setting up emulator
+      - Launch the Android Virtual Device Manager
+        - In Android Studio, select Tools > Android > AVD Manager, or click the AVD Manager icon  in the toolbar. 
+        - Select the desired hardware, selection system version (5.0+ for our project)
+        - Verify configurations and then click finish.
+        - Click on green play button and select and select the emulator that you just created
+        - The app should launch on the emulator
+      - For more details please visit: http://developer.android.com/intl/es/training/basics/firstapp/running-app.html
+  
+  - Building your first user interface
+    - Open up your project in Android studio.
+      - All your layout files are contained in `res/layout` folder 
+      - Open up `activity_main.xml` and examine the layout
+      - Change the top level layout to `LinearLayout` with `vertical` orientation
+      - Change `TextView` to `EditText` text -> `height` = `wrap_content`, `width` = `match_parent`, `text` = `username`
+      - Add another `EditText` with similar contraints and set `text` to `password`
+      - Add a `Button` with text `Login`
+      -  
+      - 
