@@ -94,5 +94,3 @@ Files and instructions for learning Android.
       - Change `TextView` to `EditText` text -> `height` = `wrap_content`, `width` = `match_parent`, `text` = `username`
       - Add another `EditText` with similar contraints and set `text` to `password`
       - Add a `Button` with text `Login`
-      -  
-      - 
