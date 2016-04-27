@@ -91,6 +91,14 @@ Files and instructions for learning Android.
       - All your layout files are contained in `res/layout` folder 
       - Open up `activity_main.xml` and examine the layout
       - Change the top level layout to `LinearLayout` with `vertical` orientation
-      - Change `TextView` to `EditText` text -> `height` = `wrap_content`, `width` = `match_parent`, `text` = `username`
-      - Add another `EditText` with similar contraints and set `text` to `password`
-      - Add a `Button` with text `Login`
+      - Change `TextView` to `EditText`:  `id` = `@+id/et_username`, text` -> `height` = `wrap_content`, `width` = `match_parent`, `text` = `username`
+      - Add another `EditText` with similar contraints and set `text` to `password`, `id` = `@+id/et_password`
+      - Add a `Button` with text `Login`, `id` = `@+id/btn_login`
+      - Open `MainActivity` from `java/your.package.name/MainActivity`
+      - Set Listeners
+        -  Create instance variables for the Button and the two EditText
+        -  In the `onCreate` of your activity
+          - Set click listener on the button
+          - `mBtnLogin.setOnClickListener(this);`
+          - Implement the click listener to print out user name and password on button click
+    
