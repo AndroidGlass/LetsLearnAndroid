@@ -102,3 +102,28 @@ Files and instructions for learning Android.
           - `mBtnLogin.setOnClickListener(this);`
           - Implement the click listener to print out user name and password on button click
     
+# Lesson 3
+## Intents
+  - Launch Android Studio and Open Up MiiDroid
+  - Create a new Activity called MenuActivity
+  - Open up MenuActivity and navigate to its layout file
+  - Add a scroll view as the root view
+  - Add a button called Send Implicit intent
+  - Implement functionality for sending a implicit `ACTION_SEND` intent with text `Hello World`
+     ``` 
+      // Create the text message with a string
+      Intent sendIntent = new Intent();
+      sendIntent.setAction(Intent.ACTION_SEND);
+      sendIntent.putExtra(Intent.EXTRA_TEXT, textMessage);
+      sendIntent.setType("text/plain");
+      
+      // Verify that the intent will resolve to an activity
+      if (sendIntent.resolveActivity(getPackageManager()) != null) {
+          startActivity(sendIntent);
+      }
+      ```
+      
+  - Open up main activity and adjust the current layout to center on screen
+  - Add a new text view which will be used to display an error message
+  - Add a method called `isValid(username, password)` that returns a boolean
+    - verify username and password against static data
