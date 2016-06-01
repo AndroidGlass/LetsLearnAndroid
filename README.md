@@ -122,8 +122,9 @@ Files and instructions for learning Android.
           startActivity(sendIntent);
       }
       ```
-      
   - Open up main activity and adjust the current layout to center on screen
   - Add a new text view which will be used to display an error message
   - Add a method called `isValid(username, password)` that returns a boolean
     - verify username and password against static data
+  - Create an Intent object to start `MenuActivity` and navigate the user to it on valid username/password
+  - Show error if username/password is incorrect.
