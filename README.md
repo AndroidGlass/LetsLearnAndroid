@@ -128,3 +128,56 @@ Files and instructions for learning Android.
     - verify username and password against static data
   - Create an Intent object to start `MenuActivity` and navigate the user to it on valid username/password
   - Show error if username/password is incorrect.
+
+# Lesson 7
+## Service
+  - Create class MyIntentService extends IntentService
+  - Implement default constructor
+     ```java
+     public MyIntent() {
+	     super("MyService");
+     }
+     ```
+  - Define TAG
+    ```java
+    public static final String TAG = MyIntentService.class.getSimpleName();
+    ```
+  - Override onHandleIntent(Intent intent)
+    ```java
+    for (int i = 0; i < 5; i++) {
+      try {
+        Log.d(TAG, "Sleeping for 0.5 seconds " + i);
+        Thread.sleep(500);
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
+    }
+    ```
+  - Declare service in AndroidManifest.xml
+    ```xml
+    <service android:name=".service.MyIntentService" />
+    ```
+  - Create new activity MyServiceActivity.java
+  - Add button btn_start_service in activity_my_service.xml
+    ```
+    <Button
+    android:id="@+id/btn_start_service"
+    android:text="@string/btn_start_service"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
+    ```
+  - onCreate
+    ```java 
+    findViewById(R.id.btn_start_service).setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        Intent intent = new Intent(MyServiceActivity.this, MyIntentService.class);
+        startService(intent);
+      }	
+    ;})
+    ```
+  - Add new menu item in MenuActivity.java
+    ```java
+    new MenuItem(MyServiceActivity.class, "Service Demo")
+    ```
+  
