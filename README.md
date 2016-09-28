@@ -110,7 +110,7 @@ Files and instructions for learning Android.
   - Add a scroll view as the root view
   - Add a button called Send Implicit intent
   - Implement functionality for sending a implicit `ACTION_SEND` intent with text `Hello World`
-     ``` 
+      ```java
       // Create the text message with a string
       Intent sendIntent = new Intent();
       sendIntent.setAction(Intent.ACTION_SEND);
@@ -133,16 +133,19 @@ Files and instructions for learning Android.
 ## Service
   - Create class MyIntentService extends IntentService
   - Implement default constructor
-     ```java
-     public MyIntent() {
-	     super("MyService");
-     }
-     ```
+  
+      ```java
+      public MyIntent() {
+        super("MyService");
+      }
+      ```
   - Define TAG
+  
     ```java
     public static final String TAG = MyIntentService.class.getSimpleName();
     ```
   - Override onHandleIntent(Intent intent)
+  
     ```java
     for (int i = 0; i < 5; i++) {
       try {
@@ -154,19 +157,22 @@ Files and instructions for learning Android.
     }
     ```
   - Declare service in AndroidManifest.xml
+  
     ```xml
     <service android:name=".service.MyIntentService" />
     ```
   - Create new activity MyServiceActivity.java
   - Add button btn_start_service in activity_my_service.xml
-    ```
+  
+    ```xml
     <Button
-    android:id="@+id/btn_start_service"
-    android:text="@string/btn_start_service"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content" />
+      android:id="@+id/btn_start_service"
+      android:text="@string/btn_start_service"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content" />
     ```
   - onCreate
+  
     ```java 
     findViewById(R.id.btn_start_service).setOnClickListener(new View.OnClickListener() {
       @Override
@@ -177,6 +183,7 @@ Files and instructions for learning Android.
     ;})
     ```
   - Add new menu item in MenuActivity.java
+  
     ```java
     new MenuItem(MyServiceActivity.class, "Service Demo")
     ```
