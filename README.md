@@ -188,3 +188,120 @@ Files and instructions for learning Android.
     new MenuItem(MyServiceActivity.class, "Service Demo")
     ```
   
+# Lesson 8
+## MediaPlayer
+- Update Gradle (2.14.1)
+- Create package "media.player"
+- New Empty Activity "MediaPlayerActivity"
+- In MenuActivity, add New MenuItem "Media Player Demo"
+- activity_media_player.xml
+  - Change root to ScrollView with a LinearLayout
+  - Add buttons
+    - Play
+    - Pause
+    - Stop
+
+ ```xml
+ <?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/activity_media_player"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context="meetup.droid.miidroid.media.player.MediaPlayerActivity">
+
+        <Button
+            android:id="@+id/btn_play_foreground"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/play_foreground" />
+
+        <Button
+            android:id="@+id/btn_pause"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pause" />
+
+        <Button
+            android:id="@+id/btn_stop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/stop" />
+
+    </LinearLayout>
+</ScrollView>
+```
+
+- Create "raw" folder under res
+- Put music file into folder
+- In MediaPlayerActivity
+  - onClickListener
+  - Implementing buttons
+
+```java
+private MediaPlayer mMediaPlayer;
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_media_player);
+
+    findViewById(R.id.btn_play_foreground).setOnClickListener(this);
+    findViewById(R.id.btn_stop).setOnClickListener(this);
+    findViewById(R.id.btn_pause).setOnClickListener(this);
+
+    mMediaPlayer = MediaPlayer.create(this, R.raw.viviq);
+}
+
+@Override
+public void onClick(View v) {
+    switch (v.getId()) {
+        case R.id.btn_play_foreground:
+            playMusic();
+            break;
+        case R.id.btn_pause:
+            pauseMusic();
+            break;
+        case R.id.btn_stop:
+            stopMusic();
+            break;
+    }
+}
+
+private void stopMusic() {
+    mMediaPlayer.stop();
+    try {
+        //This is a blocking operation, avoid calling it on UI thread
+        mMediaPlayer.prepare();
+    } catch (IOException e) {
+        Log.e("MediaPlayerActivity", "Prepare exception", e);
+    }
+}
+
+private void pauseMusic() {
+    mMediaPlayer.pause();
+
+}
+
+private void playMusic() {
+    mMediaPlayer.start();
+}
+
+@Override
+protected void onStop() {
+    super.onStop();
+    if (mMediaPlayer != null) {
+        mMediaPlayer.release();
+    }
+}
+```
