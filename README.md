@@ -221,7 +221,7 @@ Files and instructions for learning Android.
         tools:context="meetup.droid.miidroid.media.player.MediaPlayerActivity">
 
         <Button
-            android:id="@+id/btn_play_foreground"
+            android:id="@+id/btn_play"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/play_foreground" />
@@ -256,7 +256,7 @@ protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_media_player);
 
-    findViewById(R.id.btn_play_foreground).setOnClickListener(this);
+    findViewById(R.id.btn_play).setOnClickListener(this);
     findViewById(R.id.btn_stop).setOnClickListener(this);
     findViewById(R.id.btn_pause).setOnClickListener(this);
 
@@ -266,7 +266,7 @@ protected void onCreate(Bundle savedInstanceState) {
 @Override
 public void onClick(View v) {
     switch (v.getId()) {
-        case R.id.btn_play_foreground:
+        case R.id.btn_play:
             playMusic();
             break;
         case R.id.btn_pause:
